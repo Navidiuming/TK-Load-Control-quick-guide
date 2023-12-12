@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./flightsertup.css">
+    <title>FLIGHT SETUP</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="header">
+            <p>flight setup</p>
+        </div>
+        <div class="body">
+            <div class="quickGuide">
+                <p>Qiuck Guide</p>
+                <p>IC</p>
+                <p>Display Aircraft And Configuration</p>
+                <p>DI</p>
+                <p>Operating Data</p>
+                <p>IG</p>
+                <p>Pantry Code</p>
+                <div class="selectOption">
+                    <label for="">Select the code</label>
+                    <select>
+                        <option>IC</option>
+                        <option selected="selected">DI</option>
+                        <option>IG</option>
+                        <option>IV</option>
+                        <option>ALL</option>
+                    </select>
+                </div>
+            </div>
+            <div class="codeInfo IC">
+                <h3>DISPLAY AIRCRAFT AND CONFIGURATION CODES</h3>
+                <div>
+                    <p>IC/TK</p>
+                    <p>display all aircraft types for carrier tk</p>
+                    <p>IC/TK/321</p>
+                    <p>display all Configurations of a Specific Aircraft Type Code</p>
+                    <p>IC/TK/TCJRH</p>
+                    <p>Display Aircraft Type Code and All Configurations of a Specific Registration</p>
+                </div>
+            </div>
+            <div class="codeInfo DI">
+                <h3>OPERATING DATA</h3>
+                <img src="./DI.png" alt="DI page" usemap="#DImap">
+
+                <map name="DImap">
+                    <area shape="rect" coords="4,31,285,36" alt="Computer" href="computer.htm">
+                    <area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm">
+                    <area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm">
+                </map>
+                <div>
+                    <p>DI/1/32R/0C/1/MB/001</p>
+                    <p>Aircraft Type Change Entry:1th</p>
+                    <p>DI/1/32R/0C/*</p>
+                    <p>Aircraft Type Change Entry:2nd</p>
+                    <p>DI/2/TCJDE</p>
+                    <p>Enter Aircraft Registeration</p>
+                    <p>DI/21/BUD/1800</p>
+                    <p>Enter Aircraft Registeration</p>
+                </div>
+            </div>
+            <div class="codeInfo IG">
+                <h3>PANTRY AND CREW CODES</h3>
+                <div>
+                    <p>IG/P</p>
+                    <p>Display Pantry Codes</p>
+                    <p>IG/C</p>
+                    <p>Display Crew Codes</p>
+                    <p>DI/7/MD</p>
+                    <p>Change Pantry And Crew Codes</p>
+                </div>
+            </div>
+            <div class="codeInfo IV">
+                <h3>HOLD VERSION</h3>
+                <div>
+                    <p>IV/TL/32R</p>
+                    <p>Display Hold Version for AirCraft Type Code 321R</p>
+                    <p>DI/11/002</p>
+                    <p>Change Hold Version</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let selectOption = document.querySelector("select");
+    const infoSectiones = document.querySelectorAll(".codeInfo");
+    console.log(selectOption);
+    function changeDisplay() {
+        console.log(selectOption.value);
+        for (let i = 0; i < infoSectiones.length; i++) {
+            if (selectOption.value == "ALL") {
+                infoSectiones[i].style.display = "block";
+            } else if (infoSectiones[i].classList.contains(selectOption.value)) {
+                infoSectiones[i].style.display = "block";
+            } else {
+                infoSectiones[i].style.display = "none"
+            }
+        }
+    }
+    selectOption.addEventListener('change', changeDisplay);
+</script>
+
+</html>
